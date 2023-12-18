@@ -10,7 +10,7 @@ on:
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
-        default: 'twrp-11.0'
+        default: 'twrp-11'
         type: choice
         options:
         - twrp-12.1
