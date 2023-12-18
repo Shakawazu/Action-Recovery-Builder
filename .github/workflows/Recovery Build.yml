@@ -11,12 +11,14 @@ on:
         options:
         - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp
         - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni
+        - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_lineageos
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
         default: 'twrp-11'
         type: choice
         options:
+        - twrp-14.1
         - twrp-12.1
         - twrp-11
         - twrp-10.0-deprecated
