@@ -7,6 +7,10 @@ on:
         description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
         required: true
         default: 'https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp'
+        type: choice
+        options:
+        - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp
+        - https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni
       MANIFEST_BRANCH:
         description: 'MANIFEST_BRANCH'
         required: true
@@ -15,6 +19,14 @@ on:
         options:
         - twrp-12.1
         - twrp-11
+        - twrp-10.0-deprecated
+        - twrp-9.0
+        - twrp-8.1
+        - twrp-8.1-macOS
+        - twrp-7.1
+        - twrp-6.0
+        - twrp-5.1
+        - twrp-4.4-deprecated
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
