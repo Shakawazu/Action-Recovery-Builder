@@ -1,4 +1,4 @@
-name: OrangeFox Recovery Build
+name: OFRP Recovery Build
 
 on:
   workflow_dispatch:
