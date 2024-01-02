@@ -1,4 +1,4 @@
-name: OFRP Recovery Build
+name: OFRP Recovery Build Legacy
 
 on:
   workflow_dispatch:
@@ -15,6 +15,11 @@ on:
         options:
         - 12.1
         - 11.0
+        - 10.0
+        - 9.0
+        - 8.1
+        - 7.1
+        - 6.0
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
@@ -85,10 +90,17 @@ jobs:
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Sync OrangeFox sources and minimal manifest
+      if: github.event.inputs.MANIFEST_BRANCH == 12.1 11.0
       run: |
         cd ${{ steps.pwd.outputs.workspace-folder }}
         git clone ${{ github.event.inputs.SYNC_URL }}
         cd sync
+        ./orangefox_sync.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+      if: github.event.inputs.MANIFEST_BRANCH == 10.0 9.0 8.1 7.1 6.0
+      run: |
+        cd ${{ steps.pwd.outputs.workspace-folder }}
+        git clone ${{ github.event.inputs.SYNC_URL }}
+        cd sync/legacy
         ./orangefox_sync.sh --branch ${{ github.event.inputs.MANIFEST_BRANCH }} --path ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
